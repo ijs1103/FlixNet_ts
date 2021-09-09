@@ -151,7 +151,7 @@ export default function Detail() {
   useEffect(
     ()=>{
       getDetail();
-    }, [currentItem]
+    }, []
   );
   
   return (loading ? (

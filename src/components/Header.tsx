@@ -29,7 +29,6 @@ const Item = styled.li<{current: boolean}>`
   text-align: center;
   color:
   ${props => (props.current ? "red" : "white")};
-  border-bottom: ${props => (props.current ? "red" : "transparent")} solid 1px;
 `;
 const SLink = styled(Link)`
   height: 50px;
@@ -57,6 +56,8 @@ const Search = styled.input<{current: boolean}>`
   border-radius: 7px;
   opacity: ${props => props.current ? 0 : 1};
 `;
+
+
 
 export default withRouter(({ location: { pathname } }) => (
   <Header>

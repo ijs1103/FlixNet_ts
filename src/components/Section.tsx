@@ -87,7 +87,6 @@ const SliderContainer = styled.div`
       opacity: 1;
     }
   }
-  //min-width: 900px;
 `;
 const Count = styled.span`
   color: red;
