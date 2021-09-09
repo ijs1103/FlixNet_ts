@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/ijs1103/FlixNet_ts/static/js/main.87ee9a4d.chunk.js",
-    "main.js.map": "/ijs1103/FlixNet_ts/static/js/main.87ee9a4d.chunk.js.map",
+    "main.js": "/ijs1103/FlixNet_ts/static/js/main.2aa21208.chunk.js",
+    "main.js.map": "/ijs1103/FlixNet_ts/static/js/main.2aa21208.chunk.js.map",
     "runtime-main.js": "/ijs1103/FlixNet_ts/static/js/runtime-main.ce5925f8.js",
     "runtime-main.js.map": "/ijs1103/FlixNet_ts/static/js/runtime-main.ce5925f8.js.map",
     "static/css/2.53fb5dae.chunk.css": "/ijs1103/FlixNet_ts/static/css/2.53fb5dae.chunk.css",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.ce5925f8.js",
     "static/css/2.53fb5dae.chunk.css",
     "static/js/2.3becabaf.chunk.js",
-    "static/js/main.87ee9a4d.chunk.js"
+    "static/js/main.2aa21208.chunk.js"
   ]
 }
