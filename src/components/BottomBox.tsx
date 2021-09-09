@@ -9,26 +9,22 @@ const Container = styled.div`
     height: 100%;
     padding: 0 5%;
 `;
-const Title = styled.div`
-  
-`;
+
 const SubContainer = styled.div`
   display: flex;
   justify-content: space-between;
 `;
 const SubTitle = styled.span`
   display: block;
-  font-size: 1rem;
+  font-size: 1.3rem;
   color: rgba(255, 255, 255, 0.5);
 `;
 interface IBottomBoxProps{
     title: string, rating?: number, year?: string
 }
 const BottomBox: React.FunctionComponent<IBottomBoxProps> = ({ title, rating, year }) => (
-            <Container>
-                <Title>
-                    {title.length > 18 ? `${title.substring(0, 12)}...` : title}
-                </Title>
+            <Container>             
+                <>{title.length > 18 ? `${title.substring(0, 18)}...` : title}</>
                 <SubContainer>
                     <SubTitle>{year && year.substring(0, 4)}</SubTitle>
                     <SubTitle>

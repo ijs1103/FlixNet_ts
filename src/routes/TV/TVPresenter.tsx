@@ -5,7 +5,7 @@ import Helmet from "react-helmet";
 import Section from "../../components/Section";
 import Loader from "../../components/Loader";
 import Message from "../../components/Message";
-import Poster from "../../components/Poster";
+import NetflixPoster from "../../components/NetflixPoster";
 
 const Container = styled.div`
   padding: 20px;
@@ -30,7 +30,7 @@ const TVPresenter: React.FunctionComponent<ITVPresenterProps> = ({ topRated, pop
         {popular && popular.length > 0 && (
           <Section title="요즘 핫한 드라마 🔥">
             {popular.map(show => (
-              <Poster
+              <NetflixPoster
                 key={show.id}
                 id={show.id}
                 imageUrl={show.poster_path}
@@ -45,7 +45,7 @@ const TVPresenter: React.FunctionComponent<ITVPresenterProps> = ({ topRated, pop
         {airingToday && airingToday.length > 0 && (
           <Section title="상영 중 드라마">
             {airingToday.map(show => (
-              <Poster
+              <NetflixPoster
                 key={show.id}
                 id={show.id}
                 imageUrl={show.poster_path}
@@ -60,7 +60,7 @@ const TVPresenter: React.FunctionComponent<ITVPresenterProps> = ({ topRated, pop
         {topRated && topRated.length > 0 && (
           <Section title="평점 높은 드라마">
             {topRated.map(show => (
-              <Poster
+              <NetflixPoster
                 key={show.id}
                 id={show.id}
                 imageUrl={show.poster_path}
@@ -73,7 +73,7 @@ const TVPresenter: React.FunctionComponent<ITVPresenterProps> = ({ topRated, pop
           </Section>
         )}
   
-        {error && <Message color="#e74c3c" text={error} />}
+        {error && <Message size="1.5rem" color="#e74c3c" text={error} />}
       </Container>
     )}
   </>

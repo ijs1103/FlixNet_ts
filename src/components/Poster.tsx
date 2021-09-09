@@ -2,26 +2,25 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import BottomBox from "./BottomBox";
+import noPoster from "../assets/noPosterSmall.png"
 
 const Image = styled.div<{bgUrl: string}>`
   background-image: url(${props => props.bgUrl});
-  min-height: 120px;
-  width: 100%;
-  background-size: cover;
-  border-radius: 4px;
-  background-position: center center;
+  height: 300px;
   aspect-ratio: auto 2 / 3;
+  background-size: cover;
+  border-radius: 4px 4px 0 0;
+  background-position: center;
   transition: opacity 0.1s linear;
 `;
 
 const Detail = styled.span`
   top: 50%;
   left: 50%;
-  width: 80%;
+  width: 50%;
   position: absolute;
   transform:translate(-50%, -50%);
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding: 10px 10px;
   text-align: center;
   opacity: 0;
@@ -29,11 +28,14 @@ const Detail = styled.span`
   border: white 2px solid;
   border-radius: 10px;
   transition: opacity 0.1s linear;
+  &:active {
+    color: darkgray;
+    border-color: darkgray;
+  }
 `;
 
 const ImageContainer = styled.div`
   margin-bottom: 10px;
-  position: relative;
   &:hover {
     ${Image} {
       opacity: 0.3;
@@ -45,8 +47,11 @@ const ImageContainer = styled.div`
 `;
 
 const Container = styled.div`
-  font-size: 1.2rem;
-  margin: 0 2.5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  margin-right: 10px;
   &:hover {
       color: red;
   }
@@ -64,16 +69,17 @@ const Poster: React.FunctionComponent<IPosterProps> = ({ id, imageUrl, title, ra
           bgUrl={
             imageUrl
               ? `https://image.tmdb.org/t/p/w500${imageUrl}`
-              : require("../assets/noPosterSmall.png")
+              : noPoster
           }
         />
-        <Detail>
-          상세정보
-        </Detail>
+          <Detail>
+            상세정보
+          </Detail>
       </ImageContainer>
-      <BottomBox title={title} rating={rating} year={year} />
+      <>{title.length > 18 ? `${title.substring(0, 18)}...` : title}</>
     </Container>
-  </Link>
+    </Link>
+
 );
 
 Poster.propTypes = {

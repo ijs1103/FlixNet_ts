@@ -11,32 +11,35 @@ const Container = styled.div`
     margin-bottom: 50px;
   }
 `;
-
-const Title = styled.span`
+const Title = styled.div`
   font-size: 2rem;
   font-weight: 600;
+  margin-bottom: 2rem;
 `;
 const Span = styled.span`
     font-size: 3.5rem;
     opacity: 0;
     position: absolute;
-    left: 110%;
-    bottom: 50%;
+    left: 100%;
+    bottom: 40%;
     transform:translate(-50%, 0%);
+    &:active {
+      color: darkgray
+    }
+`;
+const PSpan = styled(Span)`
+      left: 0%;
+      z-index: 500;
 `;
 const NextArrow = (props: any) => {
-  return (
-    <Span><FaRegArrowAltCircleRight className="nextArrow arrow" onClick={props.onClick}/></Span>
-  );
-}
+    return (
+      <Span><FaRegArrowAltCircleRight className="nextArrow arrow" onClick={props.onClick}/></Span>
+    );
+  }
 const PrevArrow = (props: any) => {
-  const PSpan = styled(Span)`
-    left: -10%;
-    z-index: 500;
-`;
-  return (
-    <PSpan><FaRegArrowAltCircleLeft className="prevArrow arrow" onClick={props.onClick}/></PSpan>
-  );
+    return (
+      <PSpan><FaRegArrowAltCircleLeft className="prevArrow arrow" onClick={props.onClick}/></PSpan>
+    );
 }
 const settings = {
   infinite: true,
@@ -45,23 +48,60 @@ const settings = {
   slidesToScroll: 5,
   nextArrow: <NextArrow />,
   prevArrow: <PrevArrow />,
+  responsive: [
+    {
+      breakpoint: 1800,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 4,
+        infinite: true,
+      }
+    },
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+        infinite: true,
+      }
+    },
+    {
+      breakpoint: 700,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+      }
+    },
+    {
+      breakpoint: 500,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      }
+    },
+  ]
 };
 const SliderContainer = styled.div`
-  margin-top: 2rem;
   &:hover {
     ${Span} {
       opacity: 1;
     }
   }
+  //min-width: 900px;
 `;
-
+const Count = styled.span`
+  color: red;
+  font-size: 1rem;
+  margin-left: 1rem;
+`;
 interface ISectionProps {
   title: string,
-  children: any
+  children: any,
+  count?: number
 }
-const Section: React.FunctionComponent<ISectionProps> = ({ title, children }) => (
+const Section: React.FunctionComponent<ISectionProps> = ({ title, count, children }) => (
   <Container>
-    <Title>{title}</Title>
+    <Title>{title}<Count>{count && `${count}건`}</Count></Title>
     <SliderContainer>
       <Slider {...settings}>
         {children}
@@ -72,6 +112,7 @@ const Section: React.FunctionComponent<ISectionProps> = ({ title, children }) =>
 
 Section.propTypes = {
   title: PropTypes.string.isRequired,
+  count: PropTypes.number,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node

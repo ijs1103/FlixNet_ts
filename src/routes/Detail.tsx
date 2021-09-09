@@ -11,7 +11,7 @@ import { Carousel } from 'react-responsive-carousel';
 import CalcStars from "../components/CalcStars";
 import noPoster from "../assets/noPosterSmall.png";
 
-const {Container,Backdrop,Contents,Cover,DataCover,TitleRate,Rate,Data,Title,TabButton,TabMenu,ItemContainer,Item,Items,Divider,Overview,Image,ImageContainer,Stitle,Casts,Cast,Cnames,Videos,Video,Scontainer,Year
+const {NoVideo, Container,Backdrop,Contents,Cover,DataCover,TitleRate,Rate,Data,Title,TabButton,TabMenu,ItemContainer,Item,Items,Divider,Overview,Image,ImageContainer,Stitle,Casts,Cast,Cnames,Video,Scontainer,Year
   } = DetailComponents;
 
 const renderSwitch = (current: any) => {
@@ -23,21 +23,19 @@ const renderSwitch = (current: any) => {
             {current.content.release_date && current.content.release_date ? current.content.release_date.substring(0, 4) : current.content.first_air_date.substring(0, 4)}
           </Item>
           <Divider>•</Divider>
-          <i className="fas fa-chevron-right"></i>
           <Item>
-            {current.content.runtime ? current.content.runtime : current.content.episode_run_time} min
+            {current.content.runtime ? (current.content.runtime || "None") : (current.content.episode_run_time || "None")} min
           </Item>
           <Divider>•</Divider>
           <Item>
-            {current.content.genres &&
-              current.content.genres.map((genre: any, index: number) =>
+            { (current.content.genres.length > 0 && current.content.genres.map((genre: any, index: number) =>
                 index === current.content.genres.length - 1
                   ? genre.name
                   : `${genre.name} / `
-              )}
+              )) || "None"}
           </Item>
         </Items>
-        <Overview>{current.content.overview}</Overview>
+        <Overview>{current.content.overview || "None"}</Overview>
       </ItemContainer>;
       case 'production':
         return <ItemContainer>
@@ -80,7 +78,6 @@ const renderSwitch = (current: any) => {
     </ItemContainer>;
       case 'trailer':
         return <ItemContainer>
-        <Videos>
           {current.content.videos.results.length > 0 ? 
           <Carousel showThumbs={false} showStatus={false} showIndicators={false} dynamicHeight={true}>
             {current.content.videos.results.map(
@@ -89,8 +86,7 @@ const renderSwitch = (current: any) => {
               )
             )}
           </Carousel>
-          : null}
-        </Videos>
+          : <NoVideo><>No Trailer</></NoVideo>}
       </ItemContainer>;
       default:
         return <ItemContainer>
@@ -155,7 +151,7 @@ export default function Detail() {
   useEffect(
     ()=>{
       getDetail();
-    }
+    }, [currentItem]
   );
   
   return (loading ? (
@@ -172,7 +168,7 @@ export default function Detail() {
     </title>
   </Helmet>
   <Backdrop
-    bgImage={`https://image.tmdb.org/t/p/original${data[0].content.backdrop_path}`}
+    bgImage={`https://image.tmdb.org/t/p/original${data[0].content.backdrop_path}` || null}
   />
   <Contents>
     <TitleRate>
@@ -182,7 +178,6 @@ export default function Detail() {
           </span>{" "}
       </Rate>
       <Title>{data[0].content.original_title ? data[0].content.original_title : data[0].content.original_name}{data[0].content.imdb_id ? <a href={`https://www.imdb.com/title/${data[0].content.imdb_id}`} target="_blank" rel="noopener noreferrer"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/IMDB_Logo_2016.svg/1200px-IMDB_Logo_2016.svg.png" width="5%" style={{marginLeft: 1.5 + 'rem'}} alt="imdbLogo" /></a>: null}</Title>
-
     </TitleRate>
     <DataCover>
     <Data>

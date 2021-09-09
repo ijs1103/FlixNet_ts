@@ -12,8 +12,7 @@ const Detail = styled.div`
   background-color: #050303;
   transition: transform 0.6s;
   width: 100%;
-  height: 35%;
-  z-index: 12;
+  height: 30%;
   font-size: 1.3rem;
   border-radius: 0 0 7px 7px;
   padding: 0 10%;
@@ -27,7 +26,7 @@ const Image = styled.div<{bgUrl: string}>`
     background-image: url(${props => props.bgUrl});
     background-size: cover;
     background-position: center center;
-    min-height: 150px;
+    min-height: 180px;
     border-radius: 7px;
     aspect-ratio: auto 2 / 3;
 `;
@@ -39,12 +38,13 @@ const ImageContainer = styled.div`
   box-shadow: 0px 1px 5px 2px rgba(0, 0, 0, 0.5);
   &:focus, &:hover {
     ${Image}{
-        transform: scale(1.4);
+        transform: scale(1.3);
         z-index: 11;
     }
     ${Detail}{
-        transform: scale(1.4);
+        transform: scale(1.3);
         opacity: 1;
+        z-index: 12;
     }  
   }
 `;

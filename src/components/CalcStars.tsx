@@ -2,7 +2,7 @@ const CalcStars = (rating: number) => {
     let star = 0;
     let result = "";
     star = Math.round(rating/2);
-    if (star===0) result ="★★★★★";
+    if (star===0) return "★★★★★";
     for(let i=0; i<5; i++){
         if(i<star){
             result+="⭐️";

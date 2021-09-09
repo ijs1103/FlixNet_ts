@@ -6,6 +6,7 @@ interface IState {
   movieResults: any[] | null,
   tvResults: any[] | null,
   searchTerm: string,
+  searched: string | null,
   loading: boolean,
   error: string | null
 }
@@ -14,6 +15,7 @@ class SearchContainer extends React.Component<IState> {
     movieResults: null,
     tvResults: null,
     searchTerm: "",
+    searched: "",
     loading: false,
     error: null
   };
@@ -46,6 +48,7 @@ class SearchContainer extends React.Component<IState> {
         data: { results: tvResults }
       } = await tvApi.search(searchTerm);
       this.setState({
+        searched: searchTerm,
         movieResults,
         tvResults
       });
@@ -57,7 +60,7 @@ class SearchContainer extends React.Component<IState> {
   };
 
   render() {
-    const { movieResults, tvResults, searchTerm, loading, error } = this.state;
+    const { movieResults, tvResults, searchTerm, searched, loading, error } = this.state;
     return (
       <SearchPresenter
         movieResults={movieResults}
@@ -65,6 +68,7 @@ class SearchContainer extends React.Component<IState> {
         loading={loading}
         error={error}
         searchTerm={searchTerm}
+        searched={searched}
         handleSubmit={this.handleSubmit}
         updateTerm={this.updateTerm}
       />

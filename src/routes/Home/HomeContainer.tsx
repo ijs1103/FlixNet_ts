@@ -34,7 +34,6 @@ class HomeContainer extends React.Component<IState> {
         upcoming,
         popular
       });
-      console.log(nowPlaying);
     } catch {
       this.setState({
         error: "Can't find movie information."
