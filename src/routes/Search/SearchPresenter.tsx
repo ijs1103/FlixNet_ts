@@ -87,10 +87,9 @@ const SearchPresenter: React.FunctionComponent<ISearchPresenterProps> = ({
             <SearchLogo onClick={handleSubmit}/>
         </Form>
       </FormDiv>
-      {tvResults &&
-          movieResults &&
-          tvResults.length > 0 &&
-          movieResults.length > 0 && (
+      {((tvResults && tvResults.length > 0) ||
+          (movieResults &&
+          movieResults.length > 0)) && (
             <Message size="2.5rem" text={`'${searched}'(으)로 검색한 결과`} color="white" />
           )}
         {movieResults && movieResults.length > 0 && (

@@ -86,7 +86,7 @@ margin-top: 1rem;
 
  ItemContainer: styled.div`
   margin-top: 2rem;
-`,
+`, 
 Items: styled.div`
   margin-top: 2rem;
 `,
@@ -116,17 +116,15 @@ background-position: center center;
 `,
 
  ImageContainer: styled.div`
-margin-bottom: 5px;
+margin-bottom: 10px;
 position: relative;
 `,
 
  Stitle: styled.div`
- margin-top: 0.5rem;
-color: white;
 `,
 
  Casts: styled.div`
-margin-top: 2rem;
+margin-top: 3rem;
 display: flex;
 overflow-x: scroll;
 overflow-y: hidden;
@@ -143,6 +141,7 @@ background-color: yellow;
 `,
  Cast: styled.div`
 margin-right: 1.5rem;
+margin-bottom: 2rem;
 `,
  Cnames: styled.p`
 font-size: 1.5rem;
@@ -155,7 +154,6 @@ Scontainer: styled.div`
     display: grid;
     grid-template-columns: repeat(auto-fill, 125px);
     grid-gap: 25px;
-    overflow-y: scroll; 
 `,
 Year: styled.span`
   font-size: 0.8rem;
@@ -165,7 +163,6 @@ NoVideo: styled.div`
   display: flex;
   justify-content: center;
   font-size: 2rem;
-  color: gray;
 `
 };
 

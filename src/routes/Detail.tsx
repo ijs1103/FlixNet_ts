@@ -11,6 +11,7 @@ import { Carousel } from 'react-responsive-carousel';
 import CalcStars from "../components/CalcStars";
 import noPoster from "../assets/noPosterSmall.png";
 
+
 const {NoVideo, Container,Backdrop,Contents,Cover,DataCover,TitleRate,Rate,Data,Title,TabButton,TabMenu,ItemContainer,Item,Items,Divider,Overview,Image,ImageContainer,Stitle,Casts,Cast,Cnames,Video,Scontainer,Year
   } = DetailComponents;
 
@@ -74,7 +75,7 @@ const renderSwitch = (current: any) => {
             </Cast>
           )
         )}
-        </Casts>
+        </Casts>    
     </ItemContainer>;
       case 'trailer':
         return <ItemContainer>
