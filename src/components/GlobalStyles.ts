@@ -18,7 +18,6 @@ const globalStyles = createGlobalStyle`
         padding-top:50px;
         overflow-x: hidden;
     }
-    
 `;
 
 export default globalStyles;

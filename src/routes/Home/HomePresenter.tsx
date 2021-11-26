@@ -10,7 +10,7 @@ import Message from "../../components/Message";
 
 const Container = styled.div`
   padding: 20px;
-  margin: 0 10%;
+  margin: 0 10% 15% 10%;
 `;
 
 interface IHomePresenterProps {

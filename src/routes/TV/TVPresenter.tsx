@@ -9,7 +9,7 @@ import NetflixPoster from "../../components/NetflixPoster";
 
 const Container = styled.div`
   padding: 20px;
-  margin: 0 10%;
+  margin: 0 10% 15% 10%;
 `;
 interface ITVPresenterProps {
   topRated: any[] | null, 

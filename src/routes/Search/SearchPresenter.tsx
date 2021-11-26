@@ -9,7 +9,7 @@ import Poster from "../../components/Poster";
 
 const Container = styled.div`
   padding: 20px;
-  margin: 0 10%;
+  margin: 0 10% 10% 10%;
 `;
 const FormDiv = styled.div`
   display: flex;
@@ -90,7 +90,7 @@ const SearchPresenter: React.FunctionComponent<ISearchPresenterProps> = ({
       {((tvResults && tvResults.length > 0) ||
           (movieResults &&
           movieResults.length > 0)) && (
-            <Message size="2.5rem" text={`'${searched}'(으)로 검색한 결과`} color="white" />
+            <Message size="2rem" text={`'${searched}'(으)로 검색한 결과`} color="white" />
           )}
         {movieResults && movieResults.length > 0 && (
           <Section count={movieResults.length} title="영화">
