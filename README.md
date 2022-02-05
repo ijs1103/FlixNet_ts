@@ -17,11 +17,10 @@
 - [x] Movie Detail
 - [x] Search (Movie, TV)
 
-## Code Challenges
+## Features
 
 - [x] IMDB Link
 - [x] Tabs inside of Movie / Show Details (YT Videos, Production Company & Countries)
 - [x] On TV Show, show seasons and creators
 - [x] NetFlix Design
 
-## with TypeScript, Responsive Web
