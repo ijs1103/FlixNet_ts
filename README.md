@@ -24,3 +24,4 @@
 - [x] On TV Show, show seasons and creators
 - [x] NetFlix Design
 
+[VIEW](https://ijs1103.github.io/FlixNet_ts/#/)
